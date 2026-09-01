@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LineageTrack</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="pulse-icon"></div>
+        <span class="brand-title">LineageTrack</span>
+      </div>
+      <div class="incognito-badge" id="incognitoBadge" title="Incognito Lineage Enabled">
+        <span class="icon">🕶️</span> Incognito Ready
+      </div>
+    </header>
+
+    <!-- Today Summary Card -->
+    <section class="stat-card main-stat">
+      <div class="stat-label">Active Time Today</div>
+      <div class="stat-value" id="todayTotalTime">00m 00s</div>
+      <div class="stat-sub-row">
+        <div class="sub-pill normal">
+          <span class="dot"></span>
+          <span>Normal: <b id="todayNormalTime">0m</b></span>
+        </div>
+        <div class="sub-pill incognito">
+          <span class="dot"></span>
+          <span>Incognito: <b id="todayIncognitoTime">0m</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Active Tab Live Info -->
+    <section class="active-tab-box">
+      <div class="box-header">
+        <span class="live-tag"><span class="ping"></span> ACTIVE TAB</span>
+        <span class="mode-tag" id="currentModeTag">Normal</span>
+      </div>
+      <div class="active-title" id="activeTabTitle">Loading active tab...</div>
+      <div class="active-domain" id="activeTabDomain">—</div>
+      <div class="lineage-indicator" id="lineageIndicator">
+        <span class="tree-icon">↳</span> <span id="lineageParentText">Direct navigation</span>
+      </div>
+    </section>
+
+    <!-- Top Visited Today -->
+    <section class="top-list-section">
+      <div class="section-title">
+        <span>Top Websites Today</span>
+        <span class="count-badge" id="totalVisitsBadge">0 visits</span>
+      </div>
+      <div class="top-list" id="topSitesList">
+        <div class="empty-state">Browsing activity will appear here...</div>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <footer class="actions-footer">
+      <button class="btn btn-primary" id="openDashboardBtn">
+        <span>🚀 Open Full Dashboard</span>
+      </button>
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="exportJsonBtn" title="Export raw JSON log">
+          <span>📥 Export JSON</span>
+        </button>
+        <button class="btn btn-danger" id="clearDataBtn" title="Clear tracking history">
+          <span>🗑️ Reset</span>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

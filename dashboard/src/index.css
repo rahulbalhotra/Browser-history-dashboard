@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Shantell Sans', 'Patrick Hand', 'Kalam', cursive, sans-serif;
+  color-scheme: light;
+  
+  /* Paper Palette - Day Mode */
+  --bg-paper: #f8f6f0;
+  --bg-paper-card: #ffffff;
+  --bg-paper-card-subtle: #fbfaf6;
+  --pencil-dark: #1e2430;
+  --pencil-medium: #475161;
+  --pencil-light: #64748b;
+  --pencil-border: #23272f;
+  --pencil-border-subtle: #94a3b8;
+  --pencil-shadow: rgba(35, 39, 47, 0.12);
+  
+  /* Ink Colors */
+  --ink-blue: #1d4ed8;
+  --ink-cyan: #0284c7;
+  --ink-green: #15803d;
+  --ink-purple: #7e22ce;
+  --ink-amber: #b45309;
+  --ink-rose: #be123c;
+}
+
+.dark {
+  color-scheme: dark;
+  
+  /* Charcoal & Blueprint Paper Palette - Night Mode */
+  --bg-paper: #12151d;
+  --bg-paper-card: #181d27;
+  --bg-paper-card-subtle: #1f2633;
+  --pencil-dark: #f8fafc;
+  --pencil-medium: #cbd5e1;
+  --pencil-light: #94a3b8;
+  --pencil-border: #64748b;
+  --pencil-border-subtle: #475569;
+  --pencil-shadow: rgba(0, 0, 0, 0.45);
+}
+
+/* Paper Grain Texture Overlay */
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-paper);
+  color: var(--pencil-dark);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Day Mode Paper Texture */
+.paper-pattern-light {
+  background-color: #f8f6f0;
+  background-image: 
+    radial-gradient(#e5dec9 0.75px, transparent 0.75px),
+    radial-gradient(#ddd5be 0.75px, #f8f6f0 0.75px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Dark Charcoal Paper Texture */
+.paper-pattern-dark {
+  background-color: #12151d;
+  background-image: 
+    radial-gradient(#252c3c 0.85px, transparent 0.85px),
+    radial-gradient(#1c2230 0.85px, #12151d 0.85px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Hand-Drawn Sketch Box Styles */
+.sketch-card {
+  background-color: var(--bg-paper-card);
+  border: 1.8px solid var(--pencil-border);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 2px 3px 0px var(--pencil-shadow);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sketch-card-subtle {
+  background-color: var(--bg-paper-card-subtle);
+  border: 1.5px solid var(--pencil-border-subtle);
+  border-radius: 185px 12px 195px 14px/14px 195px 12px 185px;
+  box-shadow: 1.5px 2px 0px var(--pencil-shadow);
+}
+
+.sketch-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 4.5px 0px var(--pencil-shadow);
+}
+
+/* Hand-Drawn Button */
+.sketch-btn {
+  border: 1.8px solid var(--pencil-border);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 2px 2.5px 0px var(--pencil-shadow);
+  transition: all 0.15s ease;
+  font-family: 'Shantell Sans', 'Patrick Hand', sans-serif;
+}
+
+.sketch-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2.5px 3.5px 0px var(--pencil-shadow);
+}
+
+.sketch-btn:active {
+  transform: translate(1px, 1.5px);
+  box-shadow: 0.5px 1px 0px var(--pencil-shadow);
+}
+
+/* Sketched Badge / Pill */
+.sketch-pill {
+  border: 1.5px solid currentColor;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  box-shadow: 1px 1.5px 0px var(--pencil-shadow);
+}
+
+/* Hand-drawn Inputs */
+.sketch-input {
+  background-color: var(--bg-paper-card);
+  border: 1.8px solid var(--pencil-border);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 1.5px 2px 0px var(--pencil-shadow);
+  color: var(--pencil-dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sketch-input:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 2px 3px 0px rgba(2, 132, 199, 0.25);
+}
+
+/* Pencil Hatching Texture for Progress & Bars */
+.pencil-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 4px,
+    currentColor 4px,
+    currentColor 5.5px
+  );
+}
+
+.pencil-hatch-dense {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 2.5px,
+    currentColor 2.5px,
+    currentColor 4px
+  );
+}
+
+/* Pencil Chart Bar Pattern */
+.sketch-bar-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.12),
+    rgba(0, 0, 0, 0.12) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+}
+
+.dark .sketch-bar-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.18) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+}
+
+/* Custom Pencil Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pencil-border-subtle);
+  border: 1px solid var(--pencil-border);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pencil-medium);
+}
+
+/* Typography helper utilities */
+.font-handwriting {
+  font-family: 'Architects Daughter', 'Caveat', cursive;
+}
+
+.font-kalam {
+  font-family: 'Kalam', cursive;
+}
+
+.font-sketch {
+  font-family: 'Shantell Sans', 'Patrick Hand', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
